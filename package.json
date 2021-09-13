@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/TrioGreenwishes/skeleton-api-node/issues"
   },
-  "homepage": "https://github.com/TrioGreenwishes/skeleton-api-node#readme"
+  "homepage": "https://github.com/TrioGreenwishes/skeleton-api-node#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
