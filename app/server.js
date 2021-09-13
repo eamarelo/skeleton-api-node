@@ -1,6 +1,6 @@
 // Dependencies
 const express = require("express")
-
+const routes = require('./controllers/routes.js')
 // Core
 
 
@@ -23,7 +23,8 @@ module.exports = class Server {
   /**
    * Routes
    */
-  routes() {
+  routes()  {
+    new routes.example.ExampleController(this.app)
 
     // If route not exist
     this.app.use((req, res) => {
