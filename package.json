@@ -1,0 +1,19 @@
+{
+  "name": "skeleton-api-node",
+  "version": "1.0.0",
+  "description": "Basic example for API to scratch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrioGreenwishes/skeleton-api-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TrioGreenwishes/skeleton-api-node/issues"
+  },
+  "homepage": "https://github.com/TrioGreenwishes/skeleton-api-node#readme"
+}
