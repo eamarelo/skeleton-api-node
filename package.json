@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/TrioGreenwishes/skeleton-api-node#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mssql": "^7.2.1"
   }
 }

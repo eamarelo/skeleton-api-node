@@ -1,7 +1,7 @@
 // // Core
-// const sql = require("mssql")
+const sql = require("mssql")
 // const fs = require("fs")
-// const { poolPromise } = require("../db.js")
+const { poolPromise } = require("../../db.js")
 // const papa = require("papaparse")
 // const ftp = require("basic-ftp")
 // var nodemailer = require('nodemailer');
@@ -10,7 +10,7 @@
 // client.ftp.verbose = false
 // dotenv.config()
 
-module.exports = class GetFile {
+module.exports = class ExampleController {
     constructor(app) {
       this.app = app
       this.run()
@@ -21,6 +21,7 @@ module.exports = class GetFile {
      */
      async middleware() {
             try {
+                const pool = await poolPromise
                 console.log("inside example controller")
             } catch (e) {
                 console.log(e)
