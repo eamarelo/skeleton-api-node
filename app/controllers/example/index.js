@@ -10,27 +10,27 @@ const { sequelize } = require("../../db.js")
 // dotenv.config()
 
 module.exports = class ExampleController {
-    constructor(app) {
-      this.app = app
-      this.run()
-    }
+constructor(app) {
+    this.app = app
+    this.run()
+}
 
-    /**
-     * Middleware
-     */
-     async middleware() {
-        try {
-            await sequelize.authenticate();
-            console.log('Connection has been established successfully.');
-          } catch (error) {
-            console.error('Unable to connect to the database:', error);
-          }
-    }
+/**
+ * Middleware
+ */
+    async middleware() {
+    try {
+        await sequelize.authenticate();
+        console.log('Connection has been established successfully.');
+        } catch (error) {
+        console.error('Unable to connect to the database:', error);
+        }
+}
 
-    /**
-     * Run
-     */
-    run() {
-        this.middleware()
-    }
+/**
+ * Run
+ */
+run() {
+    this.middleware()
+}
 }

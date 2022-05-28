@@ -24,7 +24,10 @@ module.exports = class Server {
    * Routes
    */
   routes()  {
-    new routes.example.ExampleController(this.app)
+
+    //UNCOMMENT BELOW TO TEST
+
+    // new routes.example.ExampleController(this.app)
 
     // If route not exist
     this.app.use((req, res) => {

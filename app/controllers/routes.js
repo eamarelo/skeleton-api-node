@@ -2,7 +2,9 @@
 const ExampleController = require("./example/index.js")
 
 module.exports = {
-  example: {
-    ExampleController
-  }
+  //UNCOMMENT BELOW TO TEST
+  
+  // example: {
+  //   ExampleController
+  // }
 }
