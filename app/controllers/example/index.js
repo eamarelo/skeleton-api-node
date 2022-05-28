@@ -1,7 +1,6 @@
 // // Core
-const sql = require("mssql")
 // const fs = require("fs")
-const { poolPromise } = require("../../db.js")
+const { sequelize } = require("../../db.js")
 // const papa = require("papaparse")
 // const ftp = require("basic-ftp")
 // var nodemailer = require('nodemailer');
@@ -20,14 +19,12 @@ module.exports = class ExampleController {
      * Middleware
      */
      async middleware() {
-            try {
-                const pool = await poolPromise
-                console.log("inside example controller")
-            } catch (e) {
-                console.log(e)
-                console.error(`[ERROR] GetFile/get -> ${e}`)
-                await sql.close()
-            }
+        try {
+            await sequelize.authenticate();
+            console.log('Connection has been established successfully.');
+          } catch (error) {
+            console.error('Unable to connect to the database:', error);
+          }
     }
 
     /**

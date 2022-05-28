@@ -18,7 +18,10 @@
   "homepage": "https://github.com/TrioGreenwishes/skeleton-api-node#readme",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "mssql": "^7.2.1"
+    "express": "^4.18.1",
+    "express-openid-connect": "^2.7.2",
+    "mssql": "^7.2.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.20.1"
   }
 }
