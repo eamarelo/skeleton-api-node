@@ -1,5 +1,17 @@
 // Dependencies
-const express = require("express")
+const {
+  createServer
+} = require('http')
+const fs = require("fs")
+const bodyParser = require('body-parser')
+const compression = require('compression')
+const cors = require('cors')
+const express = require('express')
+const helmet = require('helmet')
+const con = require('./db.js')
+
+const dotenv = require('dotenv')
+  // Core
 const routes = require('./controllers/routes.js')
 // Core
 
@@ -17,7 +29,12 @@ module.exports = class Server {
    * Middleware
    */
   middleware() {
-    
+    this.app.use(compression())
+    this.app.use(cors())
+    this.app.use(bodyParser.urlencoded({
+        'extended': true
+    }))
+    this.app.use(bodyParser.json())
   }
 
   /**
@@ -28,6 +45,7 @@ module.exports = class Server {
     //UNCOMMENT BELOW TO TEST
 
     // new routes.example.ExampleController(this.app)
+    new routes.menu.CreateMenu(this.app)
 
     // If route not exist
     this.app.use((req, res) => {
@@ -42,7 +60,8 @@ module.exports = class Server {
    * Security
    */
   security() {
-
+    this.app.use(helmet())
+    this.app.disable('x-powered-by')
   }
 
   /**
@@ -50,6 +69,7 @@ module.exports = class Server {
    */
   run() {
     try {
+      this.con
       this.security()
       this.middleware()
       this.routes()
