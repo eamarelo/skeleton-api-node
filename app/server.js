@@ -9,11 +9,7 @@ const cors = require('cors')
 const express = require('express')
 const helmet = require('helmet')
 const con = require('./db.js')
-
-const dotenv = require('dotenv')
-  // Core
 const routes = require('./controllers/routes.js')
-// Core
 
 
 /**
