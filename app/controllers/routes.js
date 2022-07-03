@@ -3,6 +3,7 @@ const ExampleController = require("./example/index.js")
 const CreateMenus = require("./menus/create.js")
 const GetMenus = require("./menus/get.js")
 const GetById = require("./menus/byId.js")
+const DestroyById = require("./menus/destroy.js")
 
 module.exports = {
   //UNCOMMENT BELOW TO TEST
@@ -13,6 +14,7 @@ module.exports = {
   menus: {
     CreateMenus,
     GetMenus,
-    GetById
+    GetById,
+    DestroyById
   }
 }
