@@ -1,6 +1,7 @@
 // Dependencies
 const express = require("express")
 const routes = require('./controllers/routes.js')
+const bodyParser =  require('body-parser')
 // Core
 
 
@@ -17,7 +18,10 @@ module.exports = class Server {
    * Middleware
    */
   middleware() {
-    
+    this.app.use(bodyParser.urlencoded({
+      'extended': true
+    }))
+    this.app.use(bodyParser.json())
   }
 
   /**
