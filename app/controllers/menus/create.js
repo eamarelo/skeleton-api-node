@@ -13,13 +13,30 @@ constructor(app) {
 /**
  * Middleware
  */
-    async middleware() {
-    try {
-            const menu =  Menus.build({nom: "Tarte aux pommes", duree: 15, difficultee: "normal", cout: "15 euros"})
+async middleware() {
+    this.app.post(`/menu/create`, async (req, res) => {
+        try {
+            console.log(req)
+            const menu =  Menus.build({
+                nom: req.body.title,
+                duree: req.body.duration,
+                difficultee: req.body.difficulty, 
+                cout: req.body.cost
+            })
             await menu.save()
-        } catch (error) {
-            console.error('Unable to connect to the database:', error);
+            return res.status(200).json({
+                code: 200,
+                message: 'Le menu a bien été sauvegardé'
+            })
+        } catch (e) {
+            console.error(`[ERROR] menus/create -> ${e}`)
+            return res.status(400).json({
+                code: 400,
+                message: 'Bad request'
+            })
         }
+    })
+
 }
 
 /**
