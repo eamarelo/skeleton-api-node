@@ -34,6 +34,7 @@ module.exports = class Server {
     // new routes.example.ExampleController(this.app)
     new routes.menus.CreateMenus(this.app)
     new routes.menus.GetMenus(this.app)
+    new routes.menus.GetById(this.app)
 
     // If route not exist
     this.app.use((req, res) => {
