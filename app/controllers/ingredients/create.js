@@ -1,5 +1,8 @@
 // // Core
 const Ingredients  = require("../../models/ingredients.js")
+const Tampons = require("../tampon/create.js")
+const tampons = new Tampons()
+
 
 module.exports = class CreateIngredients {
 constructor(app) {
@@ -20,6 +23,11 @@ async middleware() {
                 prixMamossa: req.body.prixMamossa
             })
             await ingredients.save()
+            await tampons.middleware({
+                idMenu: 1,
+                idIngredients: ingredients.dataValues.id,
+                idUnites: 1
+            })
             return res.status(200).json({
                 code: 200,
                 message: 'L\'ingrédient a bien été sauvegardé'
