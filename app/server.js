@@ -39,6 +39,7 @@ module.exports = class Server {
 
     new routes.ingredients.CreateIngredients(this.app)
     new routes.ingredients.GetIngredients(this.app)
+    new routes.ingredients.GetIngredientsById(this.app)
 
     // If route not exist
     this.app.use((req, res) => {
