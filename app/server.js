@@ -1,6 +1,7 @@
 // Dependencies
 const express = require("express")
 const routes = require('./controllers/routes.js')
+const bodyParser =  require('body-parser')
 // Core
 
 
@@ -17,7 +18,10 @@ module.exports = class Server {
    * Middleware
    */
   middleware() {
-    
+    this.app.use(bodyParser.urlencoded({
+      'extended': true
+    }))
+    this.app.use(bodyParser.json())
   }
 
   /**
@@ -28,6 +32,10 @@ module.exports = class Server {
     //UNCOMMENT BELOW TO TEST
 
     // new routes.example.ExampleController(this.app)
+    new routes.menus.CreateMenus(this.app)
+    new routes.menus.GetMenus(this.app)
+    new routes.menus.GetById(this.app)
+    new routes.menus.DestroyById(this.app)
 
     // If route not exist
     this.app.use((req, res) => {
