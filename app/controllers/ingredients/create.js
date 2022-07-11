@@ -16,6 +16,7 @@ constructor(app) {
 async middleware() {
     this.app.post(`/ingredients/create`, async (req, res) => {
         try {
+            console.log(req.body)
             const ingredients =  Ingredients.build({
                 nom: req.body.title,
                 image: req.body.image,
@@ -23,8 +24,9 @@ async middleware() {
                 prixMamossa: req.body.prixMamossa
             })
             await ingredients.save()
+            
             await tampons.middleware({
-                idMenu: 1,
+                idMenu: req.body.idMenu,
                 idIngredients: ingredients.dataValues.id,
                 idUnites: 1
             })
