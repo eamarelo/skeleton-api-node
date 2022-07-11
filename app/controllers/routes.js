@@ -9,6 +9,7 @@ const CreateIngredients = require("./ingredients/create.js")
 const GetIngredients = require("./ingredients/get.js")
 const GetIngredientsById = require("./ingredients/byId.js")
 const DestroyIngredients = require("./ingredients/destroy.js")
+const TamponByIdMenu = require("./tampon/byIdMenu.js")
 
 
 module.exports = {
@@ -30,5 +31,8 @@ module.exports = {
     GetIngredients,
     GetIngredientsById,
     DestroyIngredients
+  },
+  tampon: {
+    TamponByIdMenu
   }
 }
