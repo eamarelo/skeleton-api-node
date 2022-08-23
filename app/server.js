@@ -39,6 +39,8 @@ module.exports = class Server {
     new routes.menus.GetById(this.app)
     new routes.menus.DestroyById(this.app)
 
+    new routes.recettes.CreateRecettes(this.app)
+
     new routes.ingredients.CreateIngredients(this.app)
     new routes.ingredients.GetIngredients(this.app)
     new routes.ingredients.GetIngredientsById(this.app)

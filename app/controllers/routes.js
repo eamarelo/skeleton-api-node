@@ -5,6 +5,8 @@ const GetMenus = require("./menus/get.js")
 const GetById = require("./menus/byId.js")
 const DestroyById = require("./menus/destroy.js")
 
+const CreateRecettes = require("./recettes/create.js")
+
 const CreateIngredients = require("./ingredients/create.js")
 const GetIngredients = require("./ingredients/get.js")
 const GetIngredientsById = require("./ingredients/byId.js")
@@ -13,18 +15,14 @@ const TamponByIdMenu = require("./tampon/byIdMenu.js")
 
 
 module.exports = {
-  //UNCOMMENT BELOW TO TEST
-
-  // example: {
-  //   ExampleController
-
-  // }
-
   menus: {
     CreateMenus,
     GetMenus,
     GetById,
     DestroyById
+  },
+  recettes: {
+    CreateRecettes
   },
   ingredients: {
     CreateIngredients,
