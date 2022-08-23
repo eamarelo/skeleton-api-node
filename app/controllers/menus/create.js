@@ -16,12 +16,10 @@ constructor(app) {
 async middleware() {
     this.app.post(`/menu/create`, async (req, res) => {
         try {
-            console.log(req)
             const menu =  Menus.build({
-                nom: req.body.title,
-                duree: req.body.duration,
-                difficultee: req.body.difficulty, 
-                cout: req.body.cost
+                nom: req.body.nom,
+                prix: req.body.prix, 
+                url: req.body.url
             })
             await menu.save()
             return res.status(200).json({

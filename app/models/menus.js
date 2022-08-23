@@ -12,15 +12,11 @@ const Menus = sequelize.define('menus', {
     type: DataTypes.STRING,
     allowNull: false
   },
-  duree: {
-    type: DataTypes.INTEGER
+  prix: {
+    type: DataTypes.FLOAT
     // allowNull defaults to true
   },
-  difficultee: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  cout: {
+  url: {
     type: DataTypes.STRING,
     allowNull: false
   }
