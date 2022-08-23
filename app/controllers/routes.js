@@ -6,6 +6,7 @@ const GetById = require("./menus/byId.js")
 const DestroyById = require("./menus/destroy.js")
 
 const CreateRecettes = require("./recettes/create.js")
+const GetRecettes = require("./recettes/get.js")
 
 const CreateIngredients = require("./ingredients/create.js")
 const GetIngredients = require("./ingredients/get.js")
@@ -22,7 +23,8 @@ module.exports = {
     DestroyById
   },
   recettes: {
-    CreateRecettes
+    CreateRecettes,
+    GetRecettes
   },
   ingredients: {
     CreateIngredients,
