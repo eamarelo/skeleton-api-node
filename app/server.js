@@ -50,6 +50,7 @@ module.exports = class Server {
     new routes.ingredients.DestroyIngredients(this.app)
 
     new routes.produits.CreateProduits(this.app)
+    new routes.produits.GetProduits(this.app)
 
     new routes.tampon.TamponByIdMenu(this.app)
 
