@@ -17,7 +17,7 @@ async middleware() {
     this.app.post(`/ustensiles/create`, async (req, res) => {
         try {
             const ustensiles =  Ustensiles.build({
-                nom: req.body.title,
+                nom: req.body.nom,
                 ImagePath: req.body.ImagePath,
                 urlMamossa: req.body.urlMamossa,
                 prixMamossa: req.body.prixMamossa
