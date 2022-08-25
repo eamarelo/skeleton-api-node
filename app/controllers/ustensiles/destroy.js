@@ -23,7 +23,7 @@ constructor(app) {
             });
             return res.status(200).json({
                 code: 200,
-                message: 'L\'ustensiles a bien été supprimée'
+                message: 'L\'ustensile a bien été supprimée'
             })
         } catch (e) {
             console.error(`[ERROR] ustensiles/destroy -> ${e}`)
