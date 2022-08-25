@@ -50,6 +50,7 @@ module.exports = class Server {
     new routes.ingredients.DestroyIngredients(this.app)
 
     new routes.ustensiles.CreateUstensiles(this.app)
+    new routes.ustensiles.GetAllUstensiles(this.app)
 
     new routes.produits.CreateProduits(this.app)
     new routes.produits.GetProduits(this.app)

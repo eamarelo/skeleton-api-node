@@ -16,6 +16,7 @@ const GetProduitsById = require("./produits/byId.js")
 const DestroyProduits = require("./produits/destroy.js")
 
 const CreateUstensiles = require("./ustensiles/create.js")
+const GetAllUstensiles = require("./ustensiles/get.js")
 
 const CreateIngredients = require("./ingredients/create.js")
 const GetIngredients = require("./ingredients/get.js")
@@ -50,7 +51,8 @@ module.exports = {
     DestroyProduits
   },
   ustensiles: {
-    CreateUstensiles
+    CreateUstensiles,
+    GetAllUstensiles
   },
   tampon: {
     TamponByIdMenu
