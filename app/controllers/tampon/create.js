@@ -12,11 +12,12 @@ constructor(app) {
  */
 async middleware(data) {
     try {
-        console.log(data)
         const tampons =  Tampons.build({
-            idMenu: data.idMenu,
-            idIngrédients: data.idIngredients,
-            idUnités: data.idUnites, 
+            idRecettes: data.idRecettes,
+            idIngrédients: datas.idIngrédients,
+            idUnités: data.idUnités,
+            idUstensiles: data.idUstensiles,
+            idProduits: data.idProduits
         })
         await tampons.save()
     } catch (e) {

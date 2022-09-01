@@ -16,19 +16,19 @@ constructor(app) {
 async middleware() {
     this.app.post(`/ingredients/create`, async (req, res) => {
         try {
-            console.log(req.body)
             const ingredients =  Ingredients.build({
-                nom: req.body.title,
-                image: req.body.image,
-                urlMamossa: req.body.urlMamossa, 
-                prixMamossa: req.body.prixMamossa
+                nom: req.body.nom,
+                imagePath: req.body.imagePath,
+                idProduitsRef: req.body.idProduitsRef
             })
             await ingredients.save()
             
             await tampons.middleware({
-                idMenu: req.body.idMenu,
-                idIngredients: ingredients.dataValues.id,
-                idUnites: 1
+                idRecettes: req.body.idRecettes,
+                idIngrédients: ingredients.dataValues.id,
+                idUnités: req.body.idUnités,
+                idUstensiles: req.body.idUstensiles,
+                idProduits: req.body.idProduits
             })
             return res.status(200).json({
                 code: 200,
