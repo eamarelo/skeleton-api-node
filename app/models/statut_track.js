@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Balance extends Model {
+  class StatutTrack extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,11 +13,11 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Balance.init({
+  StatutTrack.init({
     libelle_track: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'Balance',
+    modelName: 'StatutTrack',
   });
-  return Balance;
+  return StatutTrack;
 };

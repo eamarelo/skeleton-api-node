@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     id_producteur_dechet: DataTypes.INTEGER,
     date_mise_en_service: DataTypes.DATE,
     date_fin_service: DataTypes.DATE,
-    id_statut_box: DataTypes.INTEGER,
+    id_statut_box: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Box',
