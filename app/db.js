@@ -3,8 +3,8 @@ dotenv.config()
 const sql = require('mssql')
 
 const config = { 
-  user: 'test_user',
-  password: "r18K|qqfN@Y&dT4`",
+  user: 'eamarelo',
+  password: "Gandia2021",
   // local
   server: '172.20.69.4', // You can use 'localhost\\instance' to connect to named instance
   // ikoula
