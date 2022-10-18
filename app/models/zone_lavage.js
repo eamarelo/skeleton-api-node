@@ -1,24 +1,14 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class ZoneLavage extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  }
-  ZoneLavage.init({
-    nom_zone_lavage: DataTypes.STRING,
-    id_adresse: DataTypes.INTEGER,
-  }, {
-    sequelize,
-    modelName: 'ZoneLavage',
-  });
-  return ZoneLavage;
-};
+const { Sequelize, DataTypes } = require('sequelize');
+const { connectAquarys } = require("../db.js")
+
+const ZoneLavage = connectAquarys.define('zone_lavage', {
+  // Model attributes are defined here
+  nom_zone_lavage: DataTypes.STRING,
+  id_adresse: DataTypes.INTEGER,
+}, {
+  timestamps: false,
+  freezeTableName: true
+  // Other model options go here
+});
+
+module.exports = ZoneLavage
