@@ -62,6 +62,7 @@ actif: {
 }
 }, {
   timestamps: false,
+  freezeTableName: true
   // Other model options go here
 });
 

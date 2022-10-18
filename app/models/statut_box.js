@@ -1,23 +1,13 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class StatutBox extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  }
-  StatutBox.init({
-    libelle_statut: DataTypes.STRING
+const { Sequelize, DataTypes } = require('sequelize');
+const { connectAquarys } = require("../db.js")
+
+const StatutBox = connectAquarys.define('statut_box', {
+  // Model attributes are defined here
+  libelle_statut: DataTypes.STRING
 }, {
-    sequelize,
-    modelName: 'StatutBox',
-  });
-  return StatutBox;
-};
+  timestamps: false,
+  freezeTableName: true
+  // Other model options go here
+});
+
+module.exports = StatutBox
