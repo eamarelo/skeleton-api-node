@@ -1,12 +1,16 @@
 
-const ExampleController = require("./example/index.js")
-const GetProducteurDechet = require("./producteur_dechet/getProducteurDechet.js")
+const ExampleController = require("./example/index.js");
+const UpdateBoxController = require("./box/update");
+const CreateTrackController = require("./track/create");
 
 module.exports = {
   example: {
     ExampleController
   },
-  producteurDechets: {
-    GetProducteurDechet
-  }
+  box: {
+    UpdateBoxController
+  },
+  track: {
+    CreateTrackController,
+  },
 }

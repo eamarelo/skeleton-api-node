@@ -30,8 +30,8 @@ module.exports = class Server {
    */
   routes()  {
     new routes.example.ExampleController(this.app)
-    new routes.producteurDechets.GetProducteurDechet(this.app)
-    new routes.test.TestController(this.app)
+    new routes.box.UpdateBoxController(this.app);
+    new routes.track.CreateTrackController(this.app);
 
     // If route not exist
     this.app.use((req, res) => {
