@@ -2,6 +2,7 @@
 const express = require("express")
 const routes = require('./controllers/routes.js')
 const bodyParser =  require('body-parser')
+var cors = require('cors')
 
 // Core
 
@@ -23,6 +24,7 @@ module.exports = class Server {
       'extended': true
     }))
     this.app.use(bodyParser.json())
+    this.app.use(cors())
   }
 
   /**
