@@ -11,4 +11,9 @@ const ZoneLavage = connectAquarys.define('zone_lavage', {
   // Other model options go here
 });
 
+ZoneLavage.associate = function (models) {
+  // Association
+  ZoneLavage.hasMany(models.Track, { foreignKey: 'id_zone_lavage', as: 'track' });
+}
+
 module.exports = ZoneLavage
