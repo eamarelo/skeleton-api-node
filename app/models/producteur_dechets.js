@@ -66,4 +66,10 @@ actif: {
   // Other model options go here
 });
 
+ProducteurDechets.associate = function (models) {
+    // Association
+    ProducteurDechets.hasMany(models.Track, { foreignKey: 'id_producteur_dechet', as: 'track' });
+  }
+  
+
 module.exports = ProducteurDechets

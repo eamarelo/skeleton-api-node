@@ -12,4 +12,9 @@ const Box = connectAquarys.define('box', {
   // Other model options go here
 });
 
+Box.associate = function (models) {
+  // Association
+  Box.hasMany(models.Track, { foreignKey: 'id_box', as: 'track' });
+}
+
 module.exports = Box

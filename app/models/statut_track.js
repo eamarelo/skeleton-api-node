@@ -11,4 +11,9 @@ const StatutTrack = connectAquarys.define('statut_track', {
   // Other model options go here
 });
 
+StatutTrack.associate = function (models) {
+  // Association
+  StatutTrack.hasMany(models.Track, { foreignKey: 'id_statut_track', as: 'track' });
+}
+
 module.exports = StatutTrack
