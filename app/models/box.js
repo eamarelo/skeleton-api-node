@@ -3,8 +3,8 @@ const { connectAquarys } = require("../db.js")
 
 const Box = connectAquarys.define('box', {
   id_producteur_dechet: DataTypes.INTEGER,
-  date_mise_en_service: DataTypes.DATE,
-  date_fin_service: DataTypes.DATE,
+  date_mise_en_service: DataTypes.DATEONLY,
+  date_fin_service: DataTypes.DATEONLY,
   id_statut_box: DataTypes.INTEGER
 }, {
   timestamps: false,

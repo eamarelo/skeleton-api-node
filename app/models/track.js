@@ -5,7 +5,7 @@ const Track = connectAquarys.define('track', {
   // Model attributes are defined here
   id_box: DataTypes.INTEGER,
   id_producteur_dechet: DataTypes.INTEGER,
-  date_heure: DataTypes.DATE,
+  date_heure: DataTypes.DATEONLY,
   id_zone_lavage: DataTypes.INTEGER,
   id_statut_track: DataTypes.INTEGER
 }, {
