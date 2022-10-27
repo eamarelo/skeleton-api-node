@@ -34,6 +34,7 @@ module.exports = class Server {
     new routes.example.ExampleController(this.app)
     new routes.box.UpdateBoxController(this.app);
     new routes.box.GetBoxByIdController(this.app);
+    new routes.poste.GetPosteByIdController(this.app);
     new routes.track.CreateTrackController(this.app);
     new routes.producteurDechets.GetProducteurDechet(this.app)
 
