@@ -1,6 +1,8 @@
 
 const ExampleController = require("./example/index.js");
 const UpdateBoxController = require("./box/update");
+const GetBoxByIdController = require("./box/getById");
+
 const CreateTrackController = require("./track/create");
 const GetProducteurDechet = require("./producteur_dechet/getProducteurDechet");
 
@@ -9,7 +11,8 @@ module.exports = {
     ExampleController
   },
   box: {
-    UpdateBoxController
+    UpdateBoxController,
+    GetBoxByIdController
   },
   track: {
     CreateTrackController,
