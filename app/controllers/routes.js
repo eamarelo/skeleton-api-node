@@ -3,6 +3,8 @@ const ExampleController = require("./example/index.js");
 const UpdateBoxController = require("./box/update");
 const GetBoxByIdController = require("./box/getById");
 
+const CreateComptageController = require("./comptage/create");
+
 const GetPosteByIdController = require("./poste/getById");
 
 const CreateTrackController = require("./track/create");
@@ -25,4 +27,8 @@ module.exports = {
   poste: {
     GetPosteByIdController
   },
+  comptage: {
+    CreateComptageController
+  },
+  
 }
