@@ -38,6 +38,7 @@ module.exports = class Server {
     new routes.track.CreateTrackController(this.app);
     new routes.producteurDechets.GetProducteurDechet(this.app)
     new routes.comptage.CreateComptageController(this.app)
+    new routes.colisage.CreateColisageController(this.app)
 
     // If route not exist
     this.app.use((req, res) => {

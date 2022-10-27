@@ -5,6 +5,8 @@ const GetBoxByIdController = require("./box/getById");
 
 const CreateComptageController = require("./comptage/create");
 
+const CreateColisageController = require("./colisage/create");
+
 const GetPosteByIdController = require("./poste/getById");
 
 const CreateTrackController = require("./track/create");
@@ -29,6 +31,9 @@ module.exports = {
   },
   comptage: {
     CreateComptageController
+  },
+  colisage: {
+    CreateColisageController
   },
   
 }
