@@ -3,6 +3,9 @@
 const { sequelize } = require("../../db.js")
 const Recettes  = require("../../models/recettes.js")
 const { recettes } = require("../routes.js")
+const multer = require("multer");
+const upload = multer({ dest: './public/recettes/uploads/' })
+
 
 module.exports = class CreateMenus {
 constructor(app) {
@@ -14,7 +17,7 @@ constructor(app) {
  * Middleware
  */
 async middleware() {
-    this.app.post(`/recettes/create`, async (req, res) => {
+    this.app.post(`/recettes/create`, upload.single('uploaded_file'),  async (req, res) => {
         try {
             const recettes =  Recettes.build({
                 nom: req.body.title,
