@@ -18,7 +18,7 @@ module.exports = class GetProducteurDechet {
         try {
           const producteurDechet = await ProducteurDechet.findByPk(req.query.id)
           if (producteurDechet === null) {
-              console.log('Not found!');
+              return res.status(404).json({ message:"Le producteur de déchet avec l'id : " + req.body.id + " n'existe pas" });
             } else {
               return res.status(200).json({
                 code: 200,
@@ -26,9 +26,7 @@ module.exports = class GetProducteurDechet {
             })
           }
         } catch (e) {
-          console.log(e)
-          console.error(`[ERROR] GetProducteurDechet/get -> ${e}`)
-          await sql.close()
+          return res.status(500).json({ message: error.message || "Une erreur s'est produite lord du get du prod déchets" + req.query.id });
         }
       })
 

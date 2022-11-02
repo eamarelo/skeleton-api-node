@@ -14,7 +14,6 @@ module.exports = class CreateColisageController {
             try {
                 res.setHeader("Access-Control-Allow-Origin", "*");
                 if (!req.body.id_track || !req.body.id_produit || !req.body.nb_add || !req.body.is_ready) {
-                    console.log(req.body)
                     return res.status(400).json({ message: "Les champs ne peuvent pas être vides." });
                 };
                 Colisage.create({
@@ -29,7 +28,7 @@ module.exports = class CreateColisageController {
                 });
 
             } catch (error) {
-                return res.status(500).json({ message: error.message || "Une erreur s'est produite lors de la création de la track." });
+                return res.status(500).json({ message: error.message || "Une erreur s'est produite lors de la création du colisage." });
             }
 
         });

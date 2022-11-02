@@ -14,7 +14,7 @@ module.exports = class CreateComptageController {
             try {
                 res.setHeader("Access-Control-Allow-Origin", "*");
                 if (!req.body.id_track || !req.body.id_produit || !req.body.nb_reel || !req.body.has_comptage) {
-                    return res.status(400).json({ message: "Les champs ne doivent être vidés." });
+                    return res.status(400).json({ message: "Les champs ne peuvent pas être vides." });
                 };
                 Comptage.create({
                     id_track: req.body.id_track,
@@ -28,7 +28,7 @@ module.exports = class CreateComptageController {
                 });
 
             } catch (error) {
-                return res.status(500).json({ message: error.message || "Une erreur s'est produite lors de la création de la track." });
+                return res.status(500).json({ message: error.message || "Une erreur s'est produite lors de la création du comptage." });
             }
 
         });

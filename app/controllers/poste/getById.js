@@ -14,7 +14,7 @@ module.exports = class GetPosteByIdController {
             try {
                 const poste = await Poste.findByPk(req.query.id)
                 if (poste === null) {
-                    console.log('Not found!');
+                    return res.status(404).json({ message:"Le poste avec l'id : " + req.body.id + " n'existe pas" });
                   } else {
                     return res.status(200).json({
                       code: 200,
@@ -22,7 +22,7 @@ module.exports = class GetPosteByIdController {
                   })
                 }
             } catch (error) {
-                return res.status(500).json({ message: error.message || "La box avec l'id : " + id_producteur_dechet + " n'existe pas" });
+                return res.status(500).json({ message: error.message || "Une erreur s'est produite lors du get de " });
             }
 
         });
