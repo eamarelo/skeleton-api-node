@@ -9,6 +9,8 @@ const CreateColisageController = require("./colisage/create");
 
 const CreateRebusController = require("./rebus/create");
 
+const GetAllTypeRebus = require("./rebus/getTypeRebus");
+
 const GetPosteByIdController = require("./poste/getById");
 
 const CreateTrackController = require("./track/create");
@@ -38,6 +40,7 @@ module.exports = {
     CreateColisageController
   },
   rebus: {
-    CreateRebusController
+    CreateRebusController,
+    GetAllTypeRebus
   },
 }

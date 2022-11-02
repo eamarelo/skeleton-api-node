@@ -40,6 +40,7 @@ module.exports = class Server {
     new routes.comptage.CreateComptageController(this.app)
     new routes.colisage.CreateColisageController(this.app)
     new routes.rebus.CreateRebusController(this.app)
+    new routes.rebus.GetAllTypeRebus(this.app)
 
     // If route not exist
     this.app.use((req, res) => {
