@@ -2,7 +2,11 @@
 const express = require("express")
 const routes = require('./controllers/routes.js')
 const bodyParser =  require('body-parser')
+<<<<<<< HEAD
 const cors = require('cors')
+=======
+var cors = require('cors')
+>>>>>>> 4d73f14283351495d5bfd2e2ee1f030ff669bb36
 
 // Core
 
@@ -24,6 +28,7 @@ module.exports = class Server {
       'extended': true
     }))
     this.app.use(bodyParser.json())
+    this.app.use(cors())
   }
 
   /**
@@ -32,7 +37,14 @@ module.exports = class Server {
   routes()  {
     new routes.example.ExampleController(this.app)
     new routes.box.UpdateBoxController(this.app);
+    new routes.box.GetBoxByIdController(this.app);
+    new routes.poste.GetPosteByIdController(this.app);
     new routes.track.CreateTrackController(this.app);
+    new routes.producteurDechets.GetProducteurDechet(this.app)
+    new routes.comptage.CreateComptageController(this.app)
+    new routes.colisage.CreateColisageController(this.app)
+    new routes.rebus.CreateRebusController(this.app)
+    new routes.rebus.GetAllTypeRebus(this.app)
 
     // If route not exist
     this.app.use((req, res) => {

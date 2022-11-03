@@ -18,7 +18,7 @@ module.exports = class UpdateBoxController {
                     if (box.length == 1) {
                         return res.json({ message: "La box a été mise à jour avec succès." });
                     } else {
-                        return res.json({ message: `Impossible de mettre à jour la box avec l'id= ${id_producteur_dechet} peut-être que la box n'a pas été trouvée.` });
+                        return res.status(404).json({ message: `La box avec l'id= ${id_producteur_dechet} n'a pas été trouvée.` });
                     };
                 });
                 

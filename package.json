@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/TrioGreenwishes/skeleton-api-node#readme",
   "dependencies": {
+<<<<<<< HEAD
     "body-parser": "^1.20.1",
     "cookie-parser": "^1.4.6",
+=======
+>>>>>>> 4d73f14283351495d5bfd2e2ee1f030ff669bb36
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
