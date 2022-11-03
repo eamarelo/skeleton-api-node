@@ -14,22 +14,19 @@ module.exports = class CreateTrackController {
             try {
                 res.setHeader("Access-Control-Allow-Origin", "*");
 
-                if (!req.body.id_box || !req.body.id_producteur_dechet || !req.body.date_heure
-                    || !req.body.id_zone_lavage || !req.body.id_zone_lavage || !req.body.id_statut_track) {
-                    return res.status(400).json({ message: "Les champs ne doivent être vidés." });
+                if (!req.body.id_box || !req.body.id_producteur_dechet || !req.body.id_zone_lavage || !req.body.id_statut_track) {
+                    return res.status(400).json({ message: "Les champs ne doivent être videeeeeeeeeeeeeés." });
                 };
 
                 Track.create({
                     id_box: req.body.id_box,
                     id_producteur_dechet: req.body.id_producteur_dechet,
-                    date_heure: req.body.date_heure,
                     id_zone_lavage: req.body.id_zone_lavage,
                     id_statut_track: req.body.id_statut_track
                 }).then(track => {
                     if (track) {
-                        return res.status(200).json({ message: "La track a bien été créé." });
+                        return res.status(200).json({ message: "La track a bien été créé.", data: track});
                     };
-                    res.send(track);
                 });
 
             } catch (error) {
