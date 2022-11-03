@@ -2,9 +2,9 @@
 const express = require("express")
 const routes = require('./controllers/routes.js')
 const bodyParser =  require('body-parser')
+const cors = require('cors')
 
 // Core
-
 
 /**
  * Server
@@ -19,6 +19,7 @@ module.exports = class Server {
    * Middleware
    */
   middleware() {
+    this.app.use(cors())
     this.app.use(bodyParser.urlencoded({
       'extended': true
     }))
