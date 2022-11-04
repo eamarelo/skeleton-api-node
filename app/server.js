@@ -41,6 +41,7 @@ module.exports = class Server {
     new routes.colisage.CreateColisageController(this.app)
     new routes.rebus.CreateRebusController(this.app)
     new routes.rebus.GetAllTypeRebus(this.app)
+    new routes.produits.GetProductByIdProducteurDechet(this.app)
 
     // If route not exist
     this.app.use((req, res) => {

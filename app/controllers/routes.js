@@ -16,6 +16,9 @@ const GetPosteByIdController = require("./poste/getById");
 const CreateTrackController = require("./track/create");
 const GetProducteurDechet = require("./producteur_dechet/getProducteurDechet");
 
+const GetProductByIdProducteurDechet = require("./products/getProductByIdProducteurDechet");
+
+
 module.exports = {
   example: {
     ExampleController
@@ -43,4 +46,7 @@ module.exports = {
     CreateRebusController,
     GetAllTypeRebus
   },
+  produits: {
+    GetProductByIdProducteurDechet
+  }
 }
