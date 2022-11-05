@@ -1,5 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const { connectContrat } = require("../db.js");
+const DispositifProduits = require('./dispositifProduits.js');
 
 const Produits = connectContrat.define('produits', {
   // Model attributes are defined here
@@ -32,5 +33,10 @@ if_ponctuel: {
   freezeTableName: true
   // Other model options go here
 });
+
+Produits.associate = function(models) {
+    // Association
+    Produits.hasMany(DispositifProduits, { foreignKey: 'id_produit', as: 'idProduits' });
+  }
 
 module.exports = Produits
