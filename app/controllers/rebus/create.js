@@ -16,8 +16,8 @@ module.exports = class CreateRebusController {
         this.app.post('/rebus/post', async (req, res) => {
             try {
                 const track = await Track.findByPk(req.body.id_track)
-                const typeOfRebus = await TypeRebus.findByPk(req.body.id_track)
-                const produit = await Produits.findByPk(req.body.id_track)
+                const typeOfRebus = await TypeRebus.findByPk(req.body.id_type_rebus)
+                const produit = await Produits.findByPk(req.body.id_produit)
                 
                 res.setHeader("Access-Control-Allow-Origin", "*");
                 if (!req.body.id_track || !req.body.id_type_rebus || !req.body.id_produit || !req.body.nb_rebus || !req.body.path_dossier_photo) {
