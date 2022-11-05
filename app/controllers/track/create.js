@@ -1,3 +1,5 @@
+const Box = require('../../models/box');
+const ProducteurDechets = require('../../models/producteur_dechets');
 const Track = require('../../models/track');
 
 module.exports = class CreateTrackController {
@@ -12,11 +14,16 @@ module.exports = class CreateTrackController {
     async middleware() {
         this.app.post('/track/post', async (req, res) => {
             try {
+                const box = await Box.findByPk(req.body.id_box)
+                const producteurDechet = await ProducteurDechets.findByPk(req.body.id_producteur_dechet)
                 res.setHeader("Access-Control-Allow-Origin", "*");
 
                 if (!req.body.id_box || !req.body.id_producteur_dechet || !req.body.id_zone_lavage || !req.body.id_statut_track) {
-                    return res.status(400).json({ message: "Les champs ne doivent être videeeeeeeeeeeeeés." });
+                    return res.status(400).json({ message: "Les champs ne doivent pas être vides." });
                 };
+                if(!box || !producteurDechet) {
+                    return res.status(400).json({ message: "L'id BOX ou l'id PRODUCTEUR DE DECHETS n'existe pas !" });
+                }
 
                 Track.create({
                     id_box: req.body.id_box,
