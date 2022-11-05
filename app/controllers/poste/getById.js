@@ -22,7 +22,7 @@ module.exports = class GetPosteByIdController {
                   })
                 }
             } catch (error) {
-                return res.status(500).json({ message: error.message || "Une erreur s'est produite lors du get de " });
+                return res.status(500).json({ message: error.message || "Une erreur s'est produite lors du get de " + req.query.id});
             }
 
         });
