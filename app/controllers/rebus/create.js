@@ -1,4 +1,7 @@
+const Produits = require('../../models/produits');
 const Rebus = require('../../models/rebus');
+const Track = require('../../models/track');
+const TypeRebus = require('../../models/type_rebus');
 
 module.exports = class CreateRebusController {
     constructor(app) {
@@ -12,10 +15,19 @@ module.exports = class CreateRebusController {
     async middleware() {
         this.app.post('/rebus/post', async (req, res) => {
             try {
+                const track = await Track.findByPk(req.body.id_track)
+                const typeOfRebus = await TypeRebus.findByPk(req.body.id_track)
+                const produit = await Produits.findByPk(req.body.id_track)
+                
                 res.setHeader("Access-Control-Allow-Origin", "*");
                 if (!req.body.id_track || !req.body.id_type_rebus || !req.body.id_produit || !req.body.nb_rebus || !req.body.path_dossier_photo) {
                     return res.status(400).json({ message: "Les champs ne peuvent pas être vides." });
                 };
+
+                if (!track || !typeOfRebus || !produit) {
+                    return res.status(400).json({ message: "L'id TRACK ou L'id type_rebus ou l'id produits n'existe pas !" });
+                };
+
                 Rebus.create({
                     id_track: req.body.id_track,
                     id_type_rebus: req.body.id_type_rebus,
