@@ -13,7 +13,7 @@ module.exports = class CreateRebusController {
         this.app.post('/rebus/post', async (req, res) => {
             try {
                 res.setHeader("Access-Control-Allow-Origin", "*");
-                if (!req.body.id_track || !req.body.id_type_rebus || !req.body.id_produit || !req.body.nb_rebus || req.body.path_dossier_photo) {
+                if (!req.body.id_track || !req.body.id_type_rebus || !req.body.id_produit || !req.body.nb_rebus || !req.body.path_dossier_photo) {
                     return res.status(400).json({ message: "Les champs ne peuvent pas être vides." });
                 };
                 Rebus.create({
