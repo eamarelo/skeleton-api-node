@@ -1,4 +1,6 @@
 const Colisage = require('../../models/colisage');
+const Produits = require('../../models/produits');
+const Track = require('../../models/track');
 
 module.exports = class CreateColisageController {
     constructor(app) {
@@ -12,10 +14,18 @@ module.exports = class CreateColisageController {
     async middleware() {
         this.app.post('/colisage/post', async (req, res) => {
             try {
+                const track = await Track.findByPk(req.body.id_track)
+                const produit = await Produits.findByPk(req.body.id_produit)
+
                 res.setHeader("Access-Control-Allow-Origin", "*");
                 if (!req.body.id_track || !req.body.id_produit || !req.body.nb_add || !req.body.is_ready) {
                     return res.status(400).json({ message: "Les champs ne peuvent pas être vides." });
                 };
+
+                if(!track || !produit) {
+                    return res.status(400).json({ message: "L'id TRACK ou l'id PRODUITS n'existe pas !'" });
+                }
+
                 Colisage.create({
                     id_track: req.body.id_track,
                     id_produit: req.body.id_produit,
