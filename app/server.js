@@ -2,11 +2,7 @@
 const express = require("express")
 const routes = require('./controllers/routes.js')
 const bodyParser =  require('body-parser')
-<<<<<<< HEAD
-const cors = require('cors')
-=======
 var cors = require('cors')
->>>>>>> 4d73f14283351495d5bfd2e2ee1f030ff669bb36
 
 // Core
 
@@ -45,7 +41,6 @@ module.exports = class Server {
     new routes.colisage.CreateColisageController(this.app)
     new routes.rebus.CreateRebusController(this.app)
     new routes.rebus.GetAllTypeRebus(this.app)
-    new routes.produits.GetProductByIdProducteurDechet(this.app)
 
     // If route not exist
     this.app.use((req, res) => {
