@@ -18,7 +18,7 @@ module.exports = class GetProducteurDechet {
         try {
           const producteurDechet = await ProducteurDechet.findByPk(req.query.id)
           if (producteurDechet === null) {
-              return res.status(404).json({ message:"Le producteur de déchet avec l'id : " + req.body.id + " n'existe pas" });
+              return res.status(404).json({ message:"Le producteur de déchet avec l'id : " + req.query.id + " n'existe pas" });
             } else {
               return res.status(200).json({
                 code: 200,
