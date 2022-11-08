@@ -27,7 +27,7 @@ module.exports = class CreateComptageController {
                     return res.status(400).json({ message: "L'id TRACK ou l'id PRODUITS n'existe pas !'" });
                 }
 
-                Comptage.create({
+                await Comptage.create({
                     id_track: req.body.id_track,
                     id_produit: req.body.id_produit,
                     nb_reel: req.body.nb_reel,

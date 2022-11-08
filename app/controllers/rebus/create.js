@@ -28,7 +28,7 @@ module.exports = class CreateRebusController {
                     return res.status(400).json({ message: "L'id TRACK ou L'id type_rebus ou l'id produits n'existe pas !" });
                 };
 
-                Rebus.create({
+                await Rebus.create({
                     id_track: req.body.id_track,
                     id_type_rebus: req.body.id_type_rebus,
                     id_produit: req.body.id_produit,

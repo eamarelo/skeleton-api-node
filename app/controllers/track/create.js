@@ -25,7 +25,7 @@ module.exports = class CreateTrackController {
                     return res.status(400).json({ message: "L'id BOX ou l'id PRODUCTEUR DE DECHETS n'existe pas !" });
                 }
 
-                Track.create({
+                await Track.create({
                     id_box: req.body.id_box,
                     id_producteur_dechet: req.body.id_producteur_dechet,
                     id_zone_lavage: req.body.id_zone_lavage,
