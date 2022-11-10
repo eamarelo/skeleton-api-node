@@ -14,6 +14,7 @@ module.exports = class GetProductByIdProducteurDechet {
      async middleware() {
       this.app.get(`/productByProducteurDechetId/get`, async (req, res) => {
         try {
+          console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
             const pool = await poolPromise
             const userCheck = `use New_Prod 
             select Distinct produits.nom from producteurs_dechets
@@ -24,7 +25,8 @@ module.exports = class GetProductByIdProducteurDechet {
             inner join Contrat.dbo.contrats on Contrat.dbo.prestations.id_contrat = contrats.id
             inner join Contrat.dbo.dispositifs_produits on Contrat.dbo.dispositifs.id = dispositifs_produits.id_dispositif
             inner join Contrat.dbo.produits on dispositifs_produits.id_produit = produits.id
-            where  Contrat.dbo.contrats.statut in (1, 9, 10)`
+            where  Contrat.dbo.contrats.statut in (1, 9, 10)
+            and producteurs_dechets.id =${req.query.id}`
             const result = await pool.request().query(userCheck)
             console.log(result)
           if (result.recordset === null) {
