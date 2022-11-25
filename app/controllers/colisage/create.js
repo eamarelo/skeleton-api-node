@@ -15,15 +15,19 @@ module.exports = class CreateColisageController {
         this.app.post('/colisage/post', async (req, res) => {
             try {
                 const track = await Track.findByPk(req.body.id_track)
-                const produit = await Produits.findByPk(req.body.id_produit)
 
                 res.setHeader("Access-Control-Allow-Origin", "*");
-                if (!req.body.id_track || !req.body.id_produit || !req.body.nb_add || !req.body.is_ready) {
+                if (!req.body.id_track) {
                     return res.status(400).json({ message: "Les champs ne peuvent pas être vides." });
                 };
 
-                if(!track || !produit) {
+                if(!track) {
                     return res.status(400).json({ message: "L'id TRACK ou l'id PRODUITS n'existe pas !'" });
+                }
+
+                if(!req.body.is_ready){
+                    req.body.is_ready = 0;
+                    console.log(req.body)
                 }
 
                 await Colisage.create({
