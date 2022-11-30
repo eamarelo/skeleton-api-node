@@ -42,6 +42,7 @@ module.exports = class Server {
     new routes.rebus.CreateRebusController(this.app)
     new routes.rebus.GetAllTypeRebus(this.app)
     new routes.produits.GetProductByIdProducteurDechet(this.app)
+    new routes.login.Login(this.app)
     
 
     // If route not exist

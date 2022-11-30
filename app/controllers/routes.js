@@ -17,6 +17,7 @@ const CreateTrackController = require("./track/create");
 const GetProducteurDechet = require("./producteur_dechet/getProducteurDechet");
 
 const GetProductByIdProducteurDechet = require("./products/getProductByIdProducteurDechet");
+const Login = require("./login/login")
 
 
 module.exports = {
@@ -48,5 +49,8 @@ module.exports = {
   },
   produits: {
     GetProductByIdProducteurDechet
+  },
+  login:{
+    Login
   }
 }
