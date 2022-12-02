@@ -16,15 +16,16 @@ module.exports = class CreateRebusController {
         this.app.post('/rebus/post', async (req, res) => {
             try {
                 const track = await Track.findByPk(req.body.id_track)
-                const typeOfRebus = await TypeRebus.findByPk(req.body.id_type_rebus)
-                const produit = await Produits.findByPk(req.body.id_produit)
-                
+                // const typeOfRebus = await TypeRebus.findByPk(req.body.id_type_rebus)
+                // const produit = await Produits.findByPk(req.body.id_produit)
+
+                console.log(req.body)
                 res.setHeader("Access-Control-Allow-Origin", "*");
                 if (!req.body.id_track || !req.body.id_type_rebus || !req.body.id_produit || !req.body.nb_rebus || !req.body.path_dossier_photo) {
                     return res.status(400).json({ message: "Les champs ne peuvent pas être vides." });
                 };
 
-                if (!track || !typeOfRebus || !produit) {
+                if (!track) {
                     return res.status(400).json({ message: "L'id TRACK ou L'id type_rebus ou l'id produits n'existe pas !" });
                 };
 

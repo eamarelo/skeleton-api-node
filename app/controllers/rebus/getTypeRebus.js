@@ -19,22 +19,39 @@ module.exports = class GetAllTypeRebus {
           if (typeOfRebus === null) {
               return res.status(404).json({ message:"Il n'y a aucun type de rebus existant." });
             } else {
-              return res.status(200).json({
-                code: 200,
-                data: typeOfRebus
-            })
+
+            //   return res.status(200).json({
+
+            //     code: 200,
+
+            //     data: typeOfRebus
+
+           // })
+
+            return res.send(typeOfRebus)
+
           }
         } catch (e) {
           return res.status(500).json({ message: e.message || "Une erreur s'est produite lors du get des types de rebus" });
         }
       })
 
+
+
     }
 
+
+
     /**
+
      * Run
+
      */
+
     run() {
+
         this.middleware()
+
     }
+
 }
