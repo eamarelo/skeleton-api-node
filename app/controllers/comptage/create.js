@@ -19,13 +19,18 @@ module.exports = class CreateComptageController {
 
                 res.setHeader("Access-Control-Allow-Origin", "*");
 
-                if (!req.body.id_track || !req.body.id_produit || !req.body.nb_reel || !req.body.has_comptage) {
+                if (!req.body.id_track) {
                     return res.status(400).json({ message: "Les champs ne peuvent pas être vides." });
                 };
 
-                if(!track || !produit) {
+                if(!track) {
                     return res.status(400).json({ message: "L'id TRACK ou l'id PRODUITS n'existe pas !'" });
-                }
+                };
+
+                if(!req.body.has_comptage){
+                    req.body.has_comptage = 0;
+                    console.log(req.body)
+                };
 
                 await Comptage.create({
                     id_track: req.body.id_track,
