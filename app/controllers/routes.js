@@ -11,6 +11,8 @@ const CreateRebusController = require("./rebus/create");
 
 const GetAllTypeRebus = require("./rebus/getTypeRebus");
 
+const UploadRebusController = require("./rebus/uploadPhoto");
+
 const GetPosteByIdController = require("./poste/getById");
 
 const CreateTrackController = require("./track/create");
@@ -45,7 +47,8 @@ module.exports = {
   },
   rebus: {
     CreateRebusController,
-    GetAllTypeRebus
+    GetAllTypeRebus,
+    UploadRebusController
   },
   produits: {
     GetProductByIdProducteurDechet
