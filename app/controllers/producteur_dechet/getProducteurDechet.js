@@ -26,7 +26,7 @@ module.exports = class GetProducteurDechet {
             })
           }
         } catch (e) {
-          return res.status(500).json({ message: error.message || "Une erreur s'est produite lord du get du producteur de déchets" + req.query.id });
+          return res.status(500).json({ message: "Une erreur s'est produite lord du get du producteur de déchets" });
         }
       })
 
