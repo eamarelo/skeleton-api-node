@@ -17,7 +17,7 @@ module.exports = class GetProductByIdProducteurDechet {
           console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
             const pool = await poolPromise
             const userCheck = `use New_Prod 
-            select Distinct produits.nom from producteurs_dechets
+            select  produits.* from producteurs_dechets
             
             inner join Contrat.dbo.dispositifs_producteurs_dechets on producteurs_dechets.id = dispositifs_producteurs_dechets.id_producteur_dechets
             inner join Contrat.dbo.dispositifs on Contrat.dbo.dispositifs_producteurs_dechets.id_dispositif = dispositifs.id
