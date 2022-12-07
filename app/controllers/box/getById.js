@@ -13,7 +13,7 @@ module.exports = class GetBoxByIdController {
         this.app.get('/box/get', async (req, res) => {
             try {
                 const box = await Box.findByPk(req.query.id)
-                if (box === null) {
+                if (!box) {
                     return res.status(404).json({ message:"La box avec l'id : " + req.query.id + " n'existe pas" });
                   } else {
                     return res.status(200).json({
