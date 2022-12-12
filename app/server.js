@@ -1,8 +1,10 @@
 // Dependencies
 const express = require("express")
 const routes = require('./controllers/routes.js')
-// Core
+const bodyParser =  require('body-parser')
+var cors = require('cors')
 
+// Core
 
 /**
  * Server
@@ -17,7 +19,12 @@ module.exports = class Server {
    * Middleware
    */
   middleware() {
-    
+    this.app.use(cors())
+    this.app.use(bodyParser.urlencoded({
+      'extended': true
+    }))
+    this.app.use(bodyParser.json())
+    this.app.use(cors())
   }
 
   /**
@@ -25,6 +32,19 @@ module.exports = class Server {
    */
   routes()  {
     new routes.example.ExampleController(this.app)
+    new routes.box.UpdateBoxController(this.app);
+    new routes.box.GetBoxByIdController(this.app);
+    new routes.poste.GetPosteByIdController(this.app);
+    new routes.track.CreateTrackController(this.app);
+    new routes.producteurDechets.GetProducteurDechet(this.app)
+    new routes.comptage.CreateComptageController(this.app)
+    new routes.colisage.CreateColisageController(this.app)
+    new routes.rebus.CreateRebusController(this.app)
+    new routes.rebus.GetAllTypeRebus(this.app)
+    new routes.rebus.UploadRebusController(this.app)
+    new routes.produits.GetProductByIdProducteurDechet(this.app)
+    new routes.login.Login(this.app)
+    
 
     // If route not exist
     this.app.use((req, res) => {
